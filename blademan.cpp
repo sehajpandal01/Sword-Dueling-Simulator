@@ -59,6 +59,16 @@ public:
     bool bIsBlocking = false;
     UPROPERTY(BlueprintReadOnly, Category = "State")
     bool bCanAttack = true;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Experience")
+    int32 Level = 1;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Experience")
+    int32 Experience = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Experience")
+    int32 ExperienceToNextLevel = 100;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Experience")
+    float LevelUpHealthBonus = 20.0f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Experience")
+    float LevelUpDamageBonus = 5.0f;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
     class UStaticMeshComponent* SwordMesh;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
@@ -83,6 +93,14 @@ public:
     void TakeDamage(float Damage, AStickmanCharacter* Attacker);
     UFUNCTION(BlueprintCallable, Category = "Combat")
     void Die();
+    UFUNCTION(BlueprintCallable, Category = "Experience")
+    void GainExperience(int32 XP);
+    UFUNCTION(BlueprintCallable, Category = "Experience")
+    void LevelUp();
+    UFUNCTION(BlueprintCallable, Category = "Experience")
+    float GetHealthPercentage() const;
+    UFUNCTION(BlueprintCallable, Category = "Experience")
+    float GetExperiencePercentage() const;
     void MoveForward(float Value);
     void MoveRight(float Value);
     void Turn(float Value);
@@ -93,12 +111,15 @@ private:
     void CheckForHit();
     void ResetAttackCooldown();
     void SetupStickmanMesh();
+    void UpdateStatsForLevel();
     FTimerHandle AttackCooldownTimer;
     FTimerHandle AttackDurationTimer;
     UPROPERTY()
     class AStickmanGameMode* GameMode;
     float LastAttackTime = 0.0f;
     EAttackType CurrentAttackType;
+    float BaseMaxHealth = 100.0f;
+    float BaseAttackDamage = 20.0f;
 };
 
 #include "StickmanCharacter.h"
@@ -122,6 +143,8 @@ AStickmanCharacter::AStickmanCharacter()
     bUseControllerRotationPitch = false;
     bUseControllerRotationYaw = false;
     bUseControllerRotationRoll = false;
+    BaseMaxHealth = MaxHealth;
+    BaseAttackDamage = AttackDamage;
 }
 
 void AStickmanCharacter::SetupStickmanMesh()
@@ -162,6 +185,7 @@ void AStickmanCharacter::BeginPlay()
     GameMode = Cast<AStickmanGameMode>(UGameplayStatics::GetGameMode(this));
     Health = MaxHealth;
     CurrentState = EFightState::Idle;
+    UpdateStatsForLevel();
 }
 
 void AStickmanCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -279,6 +303,7 @@ void AStickmanCharacter::CheckForHit()
             if (CurrentAttackType == EAttackType::HeavyAttack)
                 Damage *= 1.5f;
             HitCharacter->TakeDamage(Damage, this);
+            GainExperience(10);
         }
     }
 }
@@ -323,6 +348,10 @@ void AStickmanCharacter::TakeDamage(float Damage, AStickmanCharacter* Attacker)
     if (Health <= 0.0f)
     {
         Die();
+        if (Attacker)
+        {
+            Attacker->GainExperience(50);
+        }
     }
     else
     {
@@ -342,6 +371,40 @@ void AStickmanCharacter::Die()
     {
         GameMode->OnPlayerDeath(this);
     }
+}
+
+void AStickmanCharacter::GainExperience(int32 XP)
+{
+    Experience += XP;
+    while (Experience >= ExperienceToNextLevel)
+    {
+        LevelUp();
+    }
+}
+
+void AStickmanCharacter::LevelUp()
+{
+    Experience -= ExperienceToNextLevel;
+    Level++;
+    ExperienceToNextLevel = FMath::RoundToInt(ExperienceToNextLevel * 1.2f);
+    UpdateStatsForLevel();
+    Health = MaxHealth;
+}
+
+void AStickmanCharacter::UpdateStatsForLevel()
+{
+    MaxHealth = BaseMaxHealth + ((Level - 1) * LevelUpHealthBonus);
+    AttackDamage = BaseAttackDamage + ((Level - 1) * LevelUpDamageBonus);
+}
+
+float AStickmanCharacter::GetHealthPercentage() const
+{
+    return MaxHealth > 0 ? Health / MaxHealth : 0.0f;
+}
+
+float AStickmanCharacter::GetExperiencePercentage() const
+{
+    return ExperienceToNextLevel > 0 ? (float)Experience / (float)ExperienceToNextLevel : 0.0f;
 }
 
 #pragma once
@@ -426,4 +489,25 @@ public:
 
 private:
     void SetupArenaMesh();
+};
+
+#pragma once
+#include "CoreMinimal.h"
+#include "Blueprint/UserWidget.h"
+#include "StickmanHUD.generated.h"
+
+UCLASS()
+class STICKMANFIGHT_API UStickmanHUD : public UUserWidget
+{
+    GENERATED_BODY()
+
+public:
+    UFUNCTION(BlueprintImplementableEvent, Category = "HUD")
+    void UpdatePlayer1Health(float HealthPercentage);
+    UFUNCTION(BlueprintImplementableEvent, Category = "HUD")
+    void UpdatePlayer1Experience(float ExperiencePercentage, int32 Level);
+    UFUNCTION(BlueprintImplementableEvent, Category = "HUD")
+    void UpdatePlayer2Health(float HealthPercentage);
+    UFUNCTION(BlueprintImplementableEvent, Category = "HUD")
+    void UpdatePlayer2Experience(float ExperiencePercentage, int32 Level);
 };
