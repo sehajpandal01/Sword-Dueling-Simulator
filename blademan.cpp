@@ -4,8 +4,10 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/AudioComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/Engine.h"
+#include "Sound/SoundCue.h"
 #include "StickmanCharacter.generated.h"
 
 UENUM(BlueprintType)
@@ -83,6 +85,24 @@ public:
     class UStaticMeshComponent* LeftLegMesh;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
     class UStaticMeshComponent* RightLegMesh;
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Audio")
+    class UAudioComponent* AudioComponent;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+    class USoundCue* LightAttackSound;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+    class USoundCue* HeavyAttackSound;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+    class USoundCue* ThrustAttackSound;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+    class USoundCue* SwordHitSound;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+    class USoundCue* SwordBlockSound;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+    class USoundCue* SwordWhooshSound;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+    class USoundCue* LevelUpSound;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Audio")
+    class USoundCue* DeathSound;
     UFUNCTION(BlueprintCallable, Category = "Combat")
     void Attack(EAttackType AttackType);
     UFUNCTION(BlueprintCallable, Category = "Combat")
@@ -112,6 +132,8 @@ private:
     void ResetAttackCooldown();
     void SetupStickmanMesh();
     void UpdateStatsForLevel();
+    void PlaySwordSound(class USoundCue* SoundToPlay);
+    void SetupAudioComponent();
     FTimerHandle AttackCooldownTimer;
     FTimerHandle AttackDurationTimer;
     UPROPERTY()
@@ -125,10 +147,12 @@ private:
 #include "StickmanCharacter.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/AudioComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/Engine.h"
 #include "Kismet/GameplayStatics.h"
 #include "TimerManager.h"
+#include "Sound/SoundCue.h"
 #include "StickmanGameMode.h"
 
 AStickmanCharacter::AStickmanCharacter()
@@ -140,6 +164,7 @@ AStickmanCharacter::AStickmanCharacter()
     GetCharacterMovement()->bConstrainToPlane = true;
     GetCharacterMovement()->bSnapToPlaneAtStart = true;
     SetupStickmanMesh();
+    SetupAudioComponent();
     bUseControllerRotationPitch = false;
     bUseControllerRotationYaw = false;
     bUseControllerRotationRoll = false;
@@ -177,6 +202,13 @@ void AStickmanCharacter::SetupStickmanMesh()
     SwordMesh->SetupAttachment(RightArmMesh);
     SwordMesh->SetRelativeLocation(FVector(0, 0, -30));
     SwordMesh->SetRelativeScale3D(FVector(0.1f, 0.1f, 1.5f));
+}
+
+void AStickmanCharacter::SetupAudioComponent()
+{
+    AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("AudioComponent"));
+    AudioComponent->SetupAttachment(RootComponent);
+    AudioComponent->bAutoActivate = false;
 }
 
 void AStickmanCharacter::BeginPlay()
@@ -274,15 +306,19 @@ void AStickmanCharacter::PerformAttack(EAttackType AttackType)
     {
     case EAttackType::LightAttack:
         SwordRotation.Pitch += 45.0f;
+        PlaySwordSound(LightAttackSound);
         break;
     case EAttackType::HeavyAttack:
         SwordRotation.Pitch += 90.0f;
+        PlaySwordSound(HeavyAttackSound);
         break;
     case EAttackType::ThrustAttack:
         SwordMesh->SetRelativeLocation(SwordMesh->GetRelativeLocation() + FVector(0, 20, 0));
+        PlaySwordSound(ThrustAttackSound);
         break;
     }
     SwordMesh->SetRelativeRotation(SwordRotation);
+    PlaySwordSound(SwordWhooshSound);
     GetWorldTimerManager().SetTimer(AttackCooldownTimer, this, &AStickmanCharacter::CheckForHit, 0.2f, false);
 }
 
@@ -303,6 +339,7 @@ void AStickmanCharacter::CheckForHit()
             if (CurrentAttackType == EAttackType::HeavyAttack)
                 Damage *= 1.5f;
             HitCharacter->TakeDamage(Damage, this);
+            PlaySwordSound(SwordHitSound);
             GainExperience(10);
         }
     }
@@ -323,6 +360,7 @@ void AStickmanCharacter::StartBlocking()
     bIsBlocking = true;
     CurrentState = EFightState::Blocking;
     SwordMesh->SetRelativeRotation(FRotator(0, 0, 45));
+    PlaySwordSound(SwordBlockSound);
 }
 
 void AStickmanCharacter::StopBlocking()
@@ -342,6 +380,7 @@ void AStickmanCharacter::TakeDamage(float Damage, AStickmanCharacter* Attacker)
     if (bIsBlocking)
     {
         FinalDamage *= BlockReduction;
+        PlaySwordSound(SwordBlockSound);
     }
     Health -= FinalDamage;
     Health = FMath::Max(0.0f, Health);
@@ -365,6 +404,7 @@ void AStickmanCharacter::Die()
     CurrentState = EFightState::Dead;
     bCanAttack = false;
     bIsBlocking = false;
+    PlaySwordSound(DeathSound);
     GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
     SetActorRotation(FRotator(0, GetActorRotation().Yaw, 90));
     if (GameMode)
@@ -388,6 +428,7 @@ void AStickmanCharacter::LevelUp()
     Level++;
     ExperienceToNextLevel = FMath::RoundToInt(ExperienceToNextLevel * 1.2f);
     UpdateStatsForLevel();
+    PlaySwordSound(LevelUpSound);
     Health = MaxHealth;
 }
 
@@ -405,6 +446,15 @@ float AStickmanCharacter::GetHealthPercentage() const
 float AStickmanCharacter::GetExperiencePercentage() const
 {
     return ExperienceToNextLevel > 0 ? (float)Experience / (float)ExperienceToNextLevel : 0.0f;
+}
+
+void AStickmanCharacter::PlaySwordSound(USoundCue* SoundToPlay)
+{
+    if (SoundToPlay && AudioComponent)
+    {
+        AudioComponent->SetSound(SoundToPlay);
+        AudioComponent->Play();
+    }
 }
 
 #pragma once
