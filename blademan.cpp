@@ -162,7 +162,6 @@ AStickmanCharacter::AStickmanCharacter()
     BaseMaxHealth = MaxHealth;
     BaseAttackDamage = AttackDamage;
 }
-
 void AStickmanCharacter::SetupStickmanMesh()
 {
     HeadMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("HeadMesh"));
