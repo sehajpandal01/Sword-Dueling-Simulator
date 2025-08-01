@@ -32,7 +32,6 @@ class STICKMANFIGHT_API AStickmanCharacter : public ACharacter
     GENERATED_BODY()
 public:
     AStickmanCharacter();
-
 protected:
     virtual void BeginPlay() override;
     virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
