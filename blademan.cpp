@@ -30,7 +30,6 @@ UCLASS()
 class STICKMANFIGHT_API AStickmanCharacter : public ACharacter
 {
     GENERATED_BODY()
-
 public:
     AStickmanCharacter();
 
