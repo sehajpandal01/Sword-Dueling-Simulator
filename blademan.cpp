@@ -136,7 +136,6 @@ private:
     float BaseMaxHealth = 100.0f;
     float BaseAttackDamage = 20.0f;
 };
-
 #include "StickmanCharacter.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/CapsuleComponent.h"
