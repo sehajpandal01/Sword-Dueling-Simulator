@@ -19,7 +19,6 @@ enum class EFightState : uint8
     Stunned,
     Dead
 };
-
 UENUM(BlueprintType)
 enum class EAttackType : uint8
 {
