@@ -146,7 +146,6 @@ private:
 #include "TimerManager.h"
 #include "Sound/SoundCue.h"
 #include "StickmanGameMode.h"
-
 AStickmanCharacter::AStickmanCharacter()
 {
     PrimaryActorTick.bCanEverTick = true;
