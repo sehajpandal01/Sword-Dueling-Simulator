@@ -9,7 +9,6 @@
 #include "Engine/Engine.h"
 #include "Sound/SoundCue.h"
 #include "StickmanCharacter.generated.h"
-
 UENUM(BlueprintType)
 enum class EFightState : uint8
 {
