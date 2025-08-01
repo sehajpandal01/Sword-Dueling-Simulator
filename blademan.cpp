@@ -26,7 +26,6 @@ enum class EAttackType : uint8
     HeavyAttack,
     ThrustAttack
 };
-
 UCLASS()
 class STICKMANFIGHT_API AStickmanCharacter : public ACharacter
 {
