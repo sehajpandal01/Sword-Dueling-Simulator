@@ -119,7 +119,6 @@ public:
     void MoveRight(float Value);
     void Turn(float Value);
     void LookUp(float Value);
-
 private:
     void PerformAttack(EAttackType AttackType);
     void CheckForHit();
