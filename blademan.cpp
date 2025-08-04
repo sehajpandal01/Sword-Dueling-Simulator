@@ -193,7 +193,6 @@ void AStickmanCharacter::SetupStickmanMesh()
     SwordMesh->SetRelativeLocation(FVector(0, 0, -30));
     SwordMesh->SetRelativeScale3D(FVector(0.1f, 0.1f, 1.5f));
 }
-
 void AStickmanCharacter::SetupAudioComponent()
 {
     AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("AudioComponent"));
