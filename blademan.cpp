@@ -219,7 +219,6 @@ void AStickmanCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
     PlayerInputComponent->BindAction("Block", IE_Pressed, this, &AStickmanCharacter::StartBlocking);
     PlayerInputComponent->BindAction("Block", IE_Released, this, &AStickmanCharacter::StopBlocking);
 }
-
 void AStickmanCharacter::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
