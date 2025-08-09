@@ -207,7 +207,6 @@ void AStickmanCharacter::BeginPlay()
     CurrentState = EFightState::Idle;
     UpdateStatsForLevel();
 }
-
 void AStickmanCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
