@@ -301,7 +301,6 @@ void AStickmanCharacter::PerformAttack(EAttackType AttackType)
     PlaySwordSound(SwordWhooshSound);
     GetWorldTimerManager().SetTimer(AttackCooldownTimer, this, &AStickmanCharacter::CheckForHit, 0.2f, false);
 }
-
 void AStickmanCharacter::CheckForHit()
 {
     FVector StartLocation = GetActorLocation();
