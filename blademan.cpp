@@ -323,7 +323,6 @@ void AStickmanCharacter::CheckForHit()
         }
     }
 }
-
 void AStickmanCharacter::ResetAttackCooldown()
 {
     bCanAttack = true;
