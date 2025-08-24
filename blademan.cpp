@@ -246,7 +246,6 @@ void AStickmanCharacter::MoveForward(float Value)
         AddMovementInput(Direction, Value);
     }
 }
-
 void AStickmanCharacter::MoveRight(float Value)
 {
     if (CurrentState == EFightState::Attacking || CurrentState == EFightState::Stunned || CurrentState == EFightState::Dead)
