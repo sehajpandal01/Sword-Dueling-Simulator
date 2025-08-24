@@ -268,7 +268,6 @@ void AStickmanCharacter::LookUp(float Value)
     if (CurrentState == EFightState::Dead) return;
     AddControllerPitchInput(Value);
 }
-
 void AStickmanCharacter::Attack(EAttackType AttackType)
 {
     if (!bCanAttack || CurrentState == EFightState::Dead || CurrentState == EFightState::Stunned)
