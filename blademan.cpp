@@ -373,7 +373,6 @@ void AStickmanCharacter::TakeDamage(float Damage, AStickmanCharacter* Attacker)
         GetWorldTimerManager().SetTimer(AttackCooldownTimer, [this]() { CurrentState = EFightState::Idle; }, 0.3f, false);
     }
 }
-
 void AStickmanCharacter::Die()
 {
     CurrentState = EFightState::Dead;
