@@ -348,7 +348,6 @@ void AStickmanCharacter::StopBlocking()
     CurrentState = EFightState::Idle;
     SwordMesh->SetRelativeRotation(FRotator::ZeroRotator);
 }
-
 void AStickmanCharacter::TakeDamage(float Damage, AStickmanCharacter* Attacker)
 {
     if (CurrentState == EFightState::Dead)
