@@ -339,7 +339,6 @@ void AStickmanCharacter::StartBlocking()
     SwordMesh->SetRelativeRotation(FRotator(0, 0, 45));
     PlaySwordSound(SwordBlockSound);
 }
-
 void AStickmanCharacter::StopBlocking()
 {
     if (CurrentState == EFightState::Dead)
