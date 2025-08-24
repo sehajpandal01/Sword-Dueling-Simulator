@@ -263,7 +263,6 @@ void AStickmanCharacter::Turn(float Value)
     if (CurrentState == EFightState::Dead) return;
     AddControllerYawInput(Value);
 }
-
 void AStickmanCharacter::LookUp(float Value)
 {
     if (CurrentState == EFightState::Dead) return;
