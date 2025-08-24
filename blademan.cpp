@@ -279,7 +279,6 @@ void AStickmanCharacter::Attack(EAttackType AttackType)
     float AttackDuration = (AttackType == EAttackType::HeavyAttack) ? 0.8f : 0.5f;
     GetWorldTimerManager().SetTimer(AttackDurationTimer, this, &AStickmanCharacter::ResetAttackCooldown, AttackDuration, false);
 }
-
 void AStickmanCharacter::PerformAttack(EAttackType AttackType)
 {
     FRotator SwordRotation = SwordMesh->GetRelativeRotation();
