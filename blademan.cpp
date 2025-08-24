@@ -394,7 +394,6 @@ void AStickmanCharacter::GainExperience(int32 XP)
         LevelUp();
     }
 }
-
 void AStickmanCharacter::LevelUp()
 {
     Experience -= ExperienceToNextLevel;
