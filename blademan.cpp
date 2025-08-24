@@ -330,7 +330,6 @@ void AStickmanCharacter::ResetAttackCooldown()
     SwordMesh->SetRelativeRotation(FRotator::ZeroRotator);
     SwordMesh->SetRelativeLocation(FVector(0, 0, -30));
 }
-
 void AStickmanCharacter::StartBlocking()
 {
     if (CurrentState == EFightState::Dead || CurrentState == EFightState::Attacking)
