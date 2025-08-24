@@ -386,7 +386,6 @@ void AStickmanCharacter::Die()
         GameMode->OnPlayerDeath(this);
     }
 }
-
 void AStickmanCharacter::GainExperience(int32 XP)
 {
     Experience += XP;
