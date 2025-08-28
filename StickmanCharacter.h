@@ -10,10 +10,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "ElementTypes.h"
 #include "StickmanCharacter.generated.h"
-
 UENUM(BlueprintType) enum class EFightState : uint8 { Idle, Moving, Attacking, Blocking, Stunned, Dead };
 UENUM(BlueprintType) enum class EAttackType : uint8 { LightAttack, HeavyAttack, ThrustAttack };
-
 UCLASS()
 class STICKMANFIGHT_API AStickmanCharacter : public ACharacter
 {
