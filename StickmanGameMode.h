@@ -3,7 +3,6 @@
 #include "GameFramework/GameModeBase.h"
 #include "ElementTypes.h"
 #include "StickmanGameMode.generated.h"
-
 UCLASS()
 class STICKMANFIGHT_API AStickmanGameMode : public AGameModeBase
 {
