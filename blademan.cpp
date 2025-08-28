@@ -517,7 +517,6 @@ private:
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "StickmanHUD.generated.h"
-
 UCLASS()
 class STICKMANFIGHT_API UStickmanHUD : public UUserWidget
 {
