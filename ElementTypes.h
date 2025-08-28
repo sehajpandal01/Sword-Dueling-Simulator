@@ -1,13 +1,11 @@
 #pragma once
 #include "CoreMinimal.h"
 #include "ElementTypes.generated.h"
-
 UENUM(BlueprintType)
 enum class EElement : uint8
 {
     Fire, Water, Earth, Air, Lightning, Shadow, Light
 };
-
 USTRUCT(BlueprintType)
 struct FZoneContext
 {
