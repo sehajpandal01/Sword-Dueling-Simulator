@@ -9,7 +9,6 @@
 #include "StickmanGameMode.h"
 #include "Materials/MaterialParameterCollection.h"
 #include "Materials/MaterialParameterCollectionInstance.h"
-
 AStickmanCharacter::AStickmanCharacter()
 {
     PrimaryActorTick.bCanEverTick = true;
