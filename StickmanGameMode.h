@@ -16,7 +16,6 @@ public:
     UFUNCTION(BlueprintCallable, Category="Zone")
     void SetZoneElement(EElement InElement, bool bInHiddenOpposite=false)
     { CurrentZone.ZoneElement = InElement; CurrentZone.bHiddenOppositeTrial = bInHiddenOpposite; }
-
     UFUNCTION(BlueprintCallable, Category="Boss")
     void GrantBossTechnique(class AStickmanCharacter* Winner, FName TechniqueId);
 };
