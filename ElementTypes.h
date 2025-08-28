@@ -13,7 +13,6 @@ struct FZoneContext
     UPROPERTY(EditAnywhere, BlueprintReadWrite) EElement ZoneElement = EElement::Earth;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) bool bHiddenOppositeTrial = false;
 };
-
 inline EElement GetWeakness(EElement E)
 {
     switch (E)
