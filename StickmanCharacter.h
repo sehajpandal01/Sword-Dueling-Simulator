@@ -106,7 +106,6 @@ private:
     FTimerHandle AttackCooldownTimer, AttackDurationTimer;
 
     UPROPERTY() class AStickmanGameMode* GameMode;
-
     float LastAttackTime = 0.f;
     EAttackType CurrentAttackType;
     float BaseMaxHealth = 100.f;
