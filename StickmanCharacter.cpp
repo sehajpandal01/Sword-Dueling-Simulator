@@ -22,7 +22,7 @@ AStickmanCharacter::AStickmanCharacter()
     SetupStickmanMesh();
     SetupAudioComponent();
 
-    // Came
+    // Cam
     CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
     CameraBoom->SetupAttachment(RootComponent);
     CameraBoom->TargetArmLength = 350.f;
