@@ -104,7 +104,6 @@ private:
     void SetupAudioComponent();
 
     FTimerHandle AttackCooldownTimer, AttackDurationTimer;
-
     UPROPERTY() class AStickmanGameMode* GameMode;
     float LastAttackTime = 0.f;
     EAttackType CurrentAttackType;
