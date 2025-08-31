@@ -17,7 +17,6 @@ AStickmanCharacter::AStickmanCharacter()
     GetCharacterMovement()->RotationRate = FRotator(0.0f, 640.0f, 0.0f);
     GetCharacterMovement()->bConstrainToPlane = true;
     GetCharacterMovement()->bSnapToPlaneAtStart = true;
-
     SetupStickmanMesh();
     SetupAudioComponent();
 
