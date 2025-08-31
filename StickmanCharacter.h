@@ -102,7 +102,6 @@ private:
     void UpdateStatsForLevel();
     void PlaySwordSound(class USoundCue* SoundToPlay);
     void SetupAudioComponent();
-
     FTimerHandle AttackCooldownTimer, AttackDurationTimer;
     UPROPERTY() class AStickmanGameMode* GameMode;
     float LastAttackTime = 0.f;
