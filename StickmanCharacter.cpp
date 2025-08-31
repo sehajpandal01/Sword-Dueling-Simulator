@@ -12,7 +12,6 @@
 AStickmanCharacter::AStickmanCharacter()
 {
     PrimaryActorTick.bCanEverTick = true;
-
     GetCapsuleComponent()->SetCapsuleSize(42.f, 96.0f);
     GetCharacterMovement()->bOrientRotationToMovement = true;
     GetCharacterMovement()->RotationRate = FRotator(0.0f, 640.0f, 0.0f);
