@@ -34,7 +34,6 @@ AStickmanCharacter::AStickmanCharacter()
     bUseControllerRotationPitch = false;
     bUseControllerRotationYaw = false;
     bUseControllerRotationRoll = false;
-
     BaseMaxHealth = MaxHealth;
     BaseAttackDamage = AttackDamage;
 }
