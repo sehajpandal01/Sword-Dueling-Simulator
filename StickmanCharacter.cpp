@@ -77,7 +77,6 @@ void AStickmanCharacter::SetupAudioComponent()
     AudioComponent->SetupAttachment(RootComponent);
     AudioComponent->bAutoActivate = false;
 }
-
 void AStickmanCharacter::BeginPlay()
 {
     Super::BeginPlay();
