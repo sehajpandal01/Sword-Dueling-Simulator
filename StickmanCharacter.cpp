@@ -112,7 +112,6 @@ void AStickmanCharacter::Tick(float DeltaTime)
     {
         CurrentState = (GetVelocity().Size() > 0.1f) ? EFightState::Moving : EFightState::Idle;
     }
-
     Stamina = FMath::Min(MaxStamina, Stamina + StaminaRegenPerSec * DeltaTime);
 }
 void AStickmanCharacter::MoveForward(float Value)
