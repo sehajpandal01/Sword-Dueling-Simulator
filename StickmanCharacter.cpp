@@ -117,7 +117,6 @@ void AStickmanCharacter::Tick(float DeltaTime)
 
     Stamina = FMath::Min(MaxStamina, Stamina + StaminaRegenPerSec * DeltaTime);
 }
-
 void AStickmanCharacter::MoveForward(float Value)
 {
     if (CurrentState == EFightState::Attacking || CurrentState == EFightState::Stunned || CurrentState == EFightState::Dead)
