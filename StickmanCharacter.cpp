@@ -88,7 +88,6 @@ void AStickmanCharacter::BeginPlay()
     UpdateStatsForLevel();
     RecomputeAura();
 }
-
 void AStickmanCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
