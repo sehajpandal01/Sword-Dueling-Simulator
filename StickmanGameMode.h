@@ -41,7 +41,6 @@ public:
         CurrentZone.bHiddenOppositeTrial = bInHiddenOpposite;
     }
 
-    // Boss defeat → technique granting
     UFUNCTION(BlueprintCallable, Category="Boss")
     void GrantBossTechnique(class AStickmanCharacter* Winner, FName TechniqueId);
 
