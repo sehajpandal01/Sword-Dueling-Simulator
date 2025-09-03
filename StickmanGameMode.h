@@ -44,7 +44,6 @@ public:
     UFUNCTION(BlueprintCallable, Category="Boss")
     void GrantBossTechnique(class AStickmanCharacter* Winner, FName TechniqueId);
 
-    // Death & Legacy integration
     UFUNCTION(BlueprintCallable, Category="Legacy")
     void OnPlayerDeath(class AStickmanCharacter* DeadPlayer);
 
