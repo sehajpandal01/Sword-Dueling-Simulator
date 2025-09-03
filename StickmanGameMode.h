@@ -31,7 +31,6 @@ public:
     UFUNCTION(BlueprintCallable, Category="Tower")
     void AdvanceFloor();
 
-    // Zone context
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Zone")
     FZoneContext CurrentZone;
 
