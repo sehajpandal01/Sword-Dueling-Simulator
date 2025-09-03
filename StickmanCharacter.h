@@ -27,7 +27,7 @@ protected:
 public:
     virtual void Tick(float DeltaTime) override;
 
-    // 
+    //
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat") float Health = 100.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat") float MaxHealth = 100.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat") float AttackDamage = 20.f;
