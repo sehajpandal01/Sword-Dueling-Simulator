@@ -16,7 +16,6 @@ protected:
     virtual void BeginPlay() override;
 
 public:
-    // Tower mode flags
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tower")
     bool bTowerMode = false;
 
