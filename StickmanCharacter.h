@@ -38,7 +38,7 @@ public:
     UPROPERTY(BlueprintReadOnly, Category="State") bool bIsBlocking = false;
     UPROPERTY(BlueprintReadOnly, Category="State") bool bCanAttack = true;
 
-    // --- Experience / L
+    // --- Experience / 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Experience") int32 Level = 1;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Experience") int32 Experience = 0;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Experience") int32 ExperienceToNextLevel = 100;
