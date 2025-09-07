@@ -44,7 +44,7 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Experience") float LevelUpHealthBonus = 20.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Experience") float LevelUpDamageBonus = 5.f;
 
-    // --- Component
+    // --- Componen
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components") class UStaticMeshComponent* SwordMesh;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components") class UStaticMeshComponent* HeadMesh;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components") class UStaticMeshComponent* BodyMesh;
