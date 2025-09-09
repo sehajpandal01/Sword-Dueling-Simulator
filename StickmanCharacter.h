@@ -56,7 +56,7 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true")) class UCameraComponent* FollowCamera;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Stats") int32 STR=5, DEX=5, END=5, VIT=5, FOC=5;
-    // Stam
+    /
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Stats") float MaxStamina=100.f;
     UPROPERTY(BlueprintReadOnly, Category="Stats") float Stamina=100.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Stats") float StaminaRegenPerSec=15.f;
