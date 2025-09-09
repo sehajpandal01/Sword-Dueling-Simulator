@@ -64,7 +64,7 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Stats") float StaminaCostBlockPerHit=10.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Block") float StaminaCostBlockPerSecond=6.f;
 
-    // Perfect block window (seconds)
+    // Perfect block windo
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Block") float PerfectBlockWindow=0.15f;
     UPROPERTY(BlueprintReadOnly, Category="Combat|Block") float LastBlockPressedTime=-100.f;
 
