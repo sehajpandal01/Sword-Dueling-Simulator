@@ -86,7 +86,6 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Combo") float ComboDamageBonusPerStep=0.2f;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Combat|Combo") float LastComboAttackTime=-100.f;
 
-    // --- Dodge / I-Frames ---
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Dodge") float DodgeCost=20.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Dodge") float DodgeSpeed=1200.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Dodge") float DodgeDuration=0.35f;
@@ -96,7 +95,6 @@ public:
     UPROPERTY(BlueprintReadOnly, Category="Combat|Dodge") bool bDodgeOnCooldown=false;
     UPROPERTY(BlueprintReadOnly, Category="Combat|Dodge") bool bInvulnerable=false;
 
-    // --- API ---
     UFUNCTION(BlueprintCallable, Category="Combat") void Attack(EAttackType AttackType);
     UFUNCTION(BlueprintCallable, Category="Combat") void StartBlocking();
     UFUNCTION(BlueprintCallable, Category="Combat") void StopBlocking();
