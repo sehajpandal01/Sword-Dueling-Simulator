@@ -78,7 +78,6 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Aura") float AuraPerLevel=0.008f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Aura|VFX") class UMaterialParameterCollection* AuraMPC=nullptr;
 
-    // --- Techniques & Specials ---
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Techniques") TSet<FName> UnlockedTechniques;
 
     // --- Combo System ---
