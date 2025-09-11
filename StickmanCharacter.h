@@ -67,7 +67,7 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Block") float PerfectBlockWindow=0.15f;
     UPROPERTY(BlueprintReadOnly, Category="Combat|Block") float LastBlockPressedTime=-100.f;
 
-    // --- Elemental Identity & Zone Context ---
+
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Element") EElement Affinity = EElement::Earth;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Element") EElement Weakness = EElement::Fire;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Element") EElement CurrentZoneElement = EElement::Earth;
