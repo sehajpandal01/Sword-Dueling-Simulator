@@ -73,7 +73,6 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Element") EElement CurrentZoneElement = EElement::Earth;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Element") bool bHiddenOppositeTrial = false;
 
-    // --- Aura (visual scalar) ---
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Aura") float BaseAuraIntensity=0.2f;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Aura") float AuraIntensity=0.2f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Aura") float AuraPerLevel=0.008f;
