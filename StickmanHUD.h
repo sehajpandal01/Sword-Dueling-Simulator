@@ -17,7 +17,6 @@ public:
     void UpdatePlayer2Health(float HealthPercentage);
     UFUNCTION(BlueprintImplementableEvent, Category = "HUD")
     void UpdatePlayer2Experience(float ExperiencePercentage, int32 Level);
-
     UFUNCTION(BlueprintImplementableEvent, Category="HUD")
     void UpdatePlayer1Stamina(float StaminaPct, float AuraIntensity, float XPMultiplier);
     UFUNCTION(BlueprintImplementableEvent, Category="HUD")
