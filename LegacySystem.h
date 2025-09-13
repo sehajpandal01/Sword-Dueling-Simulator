@@ -35,7 +35,6 @@ public:
     UFUNCTION(BlueprintCallable, Category="Legacy")
     static void SaveLegacy(ULegacySaveGame* Save);
 
-    // Grants some legacy points on permadeath (e.g., tower death)
     UFUNCTION(BlueprintCallable, Category="Legacy")
     static void GrantLegacy(ULegacySaveGame* Save, int32 Points, int32 STR=0, int32 DEX=0, int32 END=0, int32 VIT=0, int32 FOC=0);
 };
