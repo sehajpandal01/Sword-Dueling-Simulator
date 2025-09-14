@@ -1,6 +1,5 @@
 #include "LegacySystem.h"
 #include "Kismet/GameplayStatics.h"
-
 static const FString SLOT_NAME = TEXT("LegacySlot");
 static const int32 USER_IDX = 0;
 
