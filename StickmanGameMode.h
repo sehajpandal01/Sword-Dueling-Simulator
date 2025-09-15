@@ -8,12 +8,10 @@ UCLASS()
 class STICKMANFIGHT_API AStickmanGameMode : public AGameModeBase
 {
     GENERATED_BODY()
-
 public:
     AStickmanGameMode();
 protected:
     virtual void BeginPlay() override;
-
 public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tower")
     bool bTowerMode = false;
@@ -39,7 +37,6 @@ public:
         CurrentZone.ZoneElement = InElement;
         CurrentZone.bHiddenOppositeTrial = bInHiddenOpposite;
     }
-
     UFUNCTION(BlueprintCallable, Category="Boss")
     void GrantBossTechnique(class AStickmanCharacter* Winner, FName TechniqueId);
 
