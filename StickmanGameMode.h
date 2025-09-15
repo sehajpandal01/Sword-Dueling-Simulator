@@ -4,7 +4,6 @@
 #include "ElementTypes.h"
 #include "LegacySystem.h"
 #include "StickmanGameMode.generated.h"
-
 UCLASS()
 class STICKMANFIGHT_API AStickmanGameMode : public AGameModeBase
 {
