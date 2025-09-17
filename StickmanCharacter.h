@@ -31,7 +31,6 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat") float AttackRange = 150.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat") float AttackCooldown = 1.0f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat") float BlockReduction = 0.5f;
-
     UPROPERTY(BlueprintReadOnly, Category="State") EFightState CurrentState = EFightState::Idle;
     UPROPERTY(BlueprintReadOnly, Category="State") bool bIsBlocking = false;
     UPROPERTY(BlueprintReadOnly, Category="State") bool bCanAttack = true;
