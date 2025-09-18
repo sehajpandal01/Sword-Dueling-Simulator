@@ -10,7 +10,6 @@ class STICKMANFIGHT_API ULegacySaveGame : public USaveGame
 public:
     UPROPERTY(VisibleAnywhere, Category="Legacy")
     int32 TotalLegacyPoints = 0;
-
     UPROPERTY(VisibleAnywhere, Category="Legacy")
     int32 BonusSTR = 0;
     UPROPERTY(VisibleAnywhere, Category="Legacy")
@@ -22,7 +21,6 @@ public:
     UPROPERTY(VisibleAnywhere, Category="Legacy")
     int32 BonusFOC = 0;
 };
-
 UCLASS()
 class STICKMANFIGHT_API ULegacySystem : public UBlueprintFunctionLibrary
 {
