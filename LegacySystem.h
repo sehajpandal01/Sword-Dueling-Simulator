@@ -3,7 +3,6 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "GameFramework/SaveGame.h"
 #include "LegacySystem.generated.h"
-
 UCLASS()
 class STICKMANFIGHT_API ULegacySaveGame : public USaveGame
 {
