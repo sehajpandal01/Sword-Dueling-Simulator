@@ -19,7 +19,6 @@ AStickmanCharacter::AStickmanCharacter()
     GetCharacterMovement()->bSnapToPlaneAtStart = true;
     SetupStickmanMesh();
     SetupAudioComponent();
-
     CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
     CameraBoom->SetupAttachment(RootComponent);
     CameraBoom->TargetArmLength = 350.f;
