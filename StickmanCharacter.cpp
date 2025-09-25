@@ -340,7 +340,6 @@ void AStickmanCharacter::UnlockTechnique(FName TechniqueId)
 {
     UnlockedTechniques.Add(TechniqueId);
 }
-
 void AStickmanCharacter::RecomputeAura()
 {
     AuraIntensity = BaseAuraIntensity + AuraPerLevel * (Level - 1);
@@ -356,3 +355,4 @@ void AStickmanCharacter::RecomputeAura()
         }
     }
 }
+\
