@@ -355,4 +355,3 @@ void AStickmanCharacter::RecomputeAura()
         }
     }
 }
-\
