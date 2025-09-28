@@ -96,7 +96,7 @@ public:
     UFUNCTION(BlueprintCallable, Category="Combat") void TakeDamage(float Damage, AStickmanCharacter* Attacker);
     UFUNCTION(BlueprintCallable, Category="Combat") void Die();
     UFUNCTION(BlueprintCallable, Category="Combat") void Dodge();
-    UFUNCTION(BlueprintCallable, Category="Combat") void PerformElementalSpecial(); // technique-gated
+    UFUNCTION(BlueprintCallable, Category="Combat") void PerformElementalSpecial();
 
     UFUNCTION(BlueprintCallable, Category="Experience") void GainExperience(int32 XP);
     UFUNCTION(BlueprintCallable, Category="Experience") void LevelUp();
