@@ -109,7 +109,6 @@ public:
     UFUNCTION(BlueprintCallable, Category="Techniques") void UnlockTechnique(FName TechniqueId);
     UFUNCTION(BlueprintCallable, Category="Aura") void RecomputeAura();
     UFUNCTION(BlueprintCallable, Category="State") void SetFightState(EFightState NewState);
-
     void MoveForward(float Value);
     void MoveRight(float Value);
     void Turn(float Value);
