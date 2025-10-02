@@ -96,7 +96,6 @@ void AStickmanCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 
     PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
     PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
-
     PlayerInputComponent->BindAction("LightAttack", IE_Pressed, this, [this]() { Attack(EAttackType::LightAttack); });
     PlayerInputComponent->BindAction("HeavyAttack", IE_Pressed, this, [this]() { Attack(EAttackType::HeavyAttack); });
     PlayerInputComponent->BindAction("Block", IE_Pressed, this, &AStickmanCharacter::StartBlocking);
