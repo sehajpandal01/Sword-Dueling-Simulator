@@ -63,7 +63,6 @@ void AStickmanCharacter::SetupStickmanMesh()
     RightLegMesh->SetupAttachment(BodyMesh);
     RightLegMesh->SetRelativeLocation(FVector(10, 0, -40));
     RightLegMesh->SetRelativeScale3D(FVector(0.1f, 0.1f, 0.8f));
-
     SwordMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SwordMesh"));
     SwordMesh->SetupAttachment(RightArmMesh);
     SwordMesh->SetRelativeLocation(FVector(0, 0, -30));
