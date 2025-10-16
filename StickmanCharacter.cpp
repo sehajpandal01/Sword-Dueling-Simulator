@@ -50,7 +50,6 @@ void AStickmanCharacter::SetupStickmanMesh()
     RightArmMesh->SetupAttachment(BodyMesh);
     RightArmMesh->SetRelativeLocation(FVector(15, 0, 20));
     RightArmMesh->SetRelativeScale3D(FVector(0.1f, 0.1f, 0.6f));
-
     LeftLegMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("LeftLegMesh"));
     LeftLegMesh->SetupAttachment(BodyMesh);
     LeftLegMesh->SetRelativeLocation(FVector(-10, 0, -40));
