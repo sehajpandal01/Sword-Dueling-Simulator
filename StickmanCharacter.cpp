@@ -38,7 +38,6 @@ void AStickmanCharacter::SetupStickmanMesh()
     HeadMesh->SetupAttachment(RootComponent);
     HeadMesh->SetRelativeLocation(FVector(0, 0, 70));
     HeadMesh->SetRelativeScale3D(FVector(0.3f, 0.3f, 0.3f));
-
     BodyMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodyMesh"));
     BodyMesh->SetupAttachment(RootComponent);
     BodyMesh->SetRelativeLocation(FVector(0, 0, 20));
