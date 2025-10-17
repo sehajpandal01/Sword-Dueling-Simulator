@@ -54,7 +54,6 @@ void AStickmanCharacter::SetupStickmanMesh()
     LeftLegMesh->SetupAttachment(BodyMesh);
     LeftLegMesh->SetRelativeLocation(FVector(-10, 0, -40));
     LeftLegMesh->SetRelativeScale3D(FVector(0.1f, 0.1f, 0.8f));
-
     RightLegMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RightLegMesh"));
     RightLegMesh->SetupAttachment(BodyMesh);
     RightLegMesh->SetRelativeLocation(FVector(10, 0, -40));
@@ -75,7 +74,6 @@ void AStickmanCharacter::BeginPlay()
     Super::BeginPlay();
     GameMode = Cast<AStickmanGameMode>(UGameplayStatics::GetGameMode(this));
     Weakness = GetWeakness(Affinity);
-
     Health = MaxHealth;
     CurrentState = EFightState::Idle;
     UpdateStatsForLevel();
