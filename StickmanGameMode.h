@@ -19,7 +19,6 @@ public:
     int32 CurrentFloor = 0;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tower")
     int32 FloorsToWin = 10;
-
     UFUNCTION(BlueprintCallable, Category="Tower")
     void StartTowerRun();
 
