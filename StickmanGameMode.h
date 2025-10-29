@@ -15,7 +15,6 @@ protected:
 public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Tower")
     bool bTowerMode = false;
-
     UPROPERTY(BlueprintReadOnly, Category="Tower")
     int32 CurrentFloor = 0;
 
