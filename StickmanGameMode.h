@@ -33,7 +33,6 @@ public:
     }
     UFUNCTION(BlueprintCallable, Category="Boss")
     void GrantBossTechnique(class AStickmanCharacter* Winner, FName TechniqueId);
-
     UFUNCTION(BlueprintCallable, Category="Legacy")
     void OnPlayerDeath(class AStickmanCharacter* DeadPlayer);
 
