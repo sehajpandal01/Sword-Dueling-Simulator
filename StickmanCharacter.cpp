@@ -86,7 +86,6 @@ void AStickmanCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
     PlayerInputComponent->BindAxis("MoveRight", this, &AStickmanCharacter::MoveRight);
     PlayerInputComponent->BindAxis("Turn", this, &AStickmanCharacter::Turn);
     PlayerInputComponent->BindAxis("LookUp", this, &AStickmanCharacter::LookUp);
-
     PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
     PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
     PlayerInputComponent->BindAction("LightAttack", IE_Pressed, this, [this]() { Attack(EAttackType::LightAttack); });
