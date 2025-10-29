@@ -27,7 +27,6 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Zone")
     FZoneContext CurrentZone;
-
     UFUNCTION(BlueprintCallable, Category="Zone")
     void SetZoneElement(EElement InElement, bool bInHiddenOpposite=false)
     {
