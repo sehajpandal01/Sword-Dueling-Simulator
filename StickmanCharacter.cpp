@@ -127,7 +127,6 @@ void AStickmanCharacter::MoveRight(float Value)
         AddMovementInput(Direction, Value);
     }
 }
-
 void AStickmanCharacter::Turn(float Value)
 {
     if (CurrentState == EFightState::Dead) return;
