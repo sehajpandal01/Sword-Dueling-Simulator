@@ -37,7 +37,6 @@ public:
     void OnPlayerDeath(class AStickmanCharacter* DeadPlayer);
     UFUNCTION(BlueprintCallable, Category="Legacy")
     void GrantLegacyOnDeath(class AStickmanCharacter* DeadPlayer);
-
     UPROPERTY(BlueprintReadOnly, Category="Legacy")
     ULegacySaveGame* LegacySave = nullptr;
 };
