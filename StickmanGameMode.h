@@ -21,7 +21,6 @@ public:
     int32 FloorsToWin = 10;
     UFUNCTION(BlueprintCallable, Category="Tower")
     void StartTowerRun();
-
     UFUNCTION(BlueprintCallable, Category="Tower")
     void AdvanceFloor();
 
