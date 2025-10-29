@@ -96,7 +96,6 @@ void AStickmanCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputC
 void AStickmanCharacter::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
-
     if (CurrentState == EFightState::Idle || CurrentState == EFightState::Moving)
     {
         CurrentState = (GetVelocity().Size() > 0.1f) ? EFightState::Moving : EFightState::Idle;
