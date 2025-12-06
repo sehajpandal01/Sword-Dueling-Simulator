@@ -324,7 +324,6 @@ void AStickmanCharacter::SetZoneContext(const FZoneContext& ctx)
     CurrentZoneElement   = ctx.ZoneElement;
     bHiddenOppositeTrial = ctx.bHiddenOppositeTrial;
 }
-
 void AStickmanCharacter::UnlockTechnique(FName TechniqueId)
 {
     UnlockedTechniques.Add(TechniqueId);
