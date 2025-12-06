@@ -318,7 +318,6 @@ void AStickmanCharacter::PlaySwordSound(USoundCue* SoundToPlay)
         AudioComponent->Play();
     }
 }
-
 void AStickmanCharacter::SetZoneContext(const FZoneContext& ctx)
 {
     CurrentZoneElement   = ctx.ZoneElement;
