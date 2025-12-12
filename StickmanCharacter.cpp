@@ -290,7 +290,6 @@ void AStickmanCharacter::LevelUp()
     Health = MaxHealth;
     Stamina = MaxStamina;
 }
-
 void AStickmanCharacter::UpdateStatsForLevel()
 {
     MaxHealth = 100.f + ((Level - 1) * 20.f) + (VIT * 20.f);
