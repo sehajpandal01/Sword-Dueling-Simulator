@@ -158,7 +158,6 @@ void AStickmanCharacter::Attack(EAttackType AttackType)
 
     GetWorldTimerManager().SetTimer(AttackDurationTimer, this, &AStickmanCharacter::ResetAttackCooldown, AttackDuration, false);
 }
-
 void AStickmanCharacter::PerformAttack(EAttackType AttackType)
 {
     FRotator SwordRotation = SwordMesh->GetRelativeRotation();
