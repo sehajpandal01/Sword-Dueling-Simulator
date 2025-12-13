@@ -155,7 +155,6 @@ void AStickmanCharacter::Attack(EAttackType AttackType)
     const float BaseDur = (AttackType == EAttackType::HeavyAttack) ? 0.8f : 0.5f;
     const float DexScale = FMath::Clamp(1.f - (DEX * 0.01f), 0.7f, 1.f);
     const float AttackDuration = BaseDur * DexScale;
-
     GetWorldTimerManager().SetTimer(AttackDurationTimer, this, &AStickmanCharacter::ResetAttackCooldown, AttackDuration, false);
 }
 void AStickmanCharacter::PerformAttack(EAttackType AttackType)
