@@ -146,7 +146,6 @@ void AStickmanCharacter::Attack(EAttackType AttackType)
     const float Cost = (AttackType == EAttackType::HeavyAttack) ? StaminaCostHeavy : StaminaCostLight;
     if (Stamina < Cost) return;
     Stamina -= Cost;
-
     CurrentAttackType = AttackType;
     CurrentState = EFightState::Attacking;
     bCanAttack = false;
