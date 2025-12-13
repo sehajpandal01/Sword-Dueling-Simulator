@@ -297,7 +297,6 @@ void AStickmanCharacter::UpdateStatsForLevel()
     MaxStamina = 100.f + END * 10.f;
     Stamina = FMath::Min(Stamina, MaxStamina);
 }
-
 float AStickmanCharacter::GetHealthPercentage() const
 {
     return MaxHealth > 0 ? Health / MaxHealth : 0.0f;
