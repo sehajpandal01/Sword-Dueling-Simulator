@@ -132,7 +132,6 @@ private:
     FTimerHandle TH_EndIFrames, TH_EndDodge, TH_DodgeCD;
 
     UPROPERTY() class AStickmanGameMode* GameMode;
-
     float BaseMaxHealth = 100.f;
     float BaseAttackDamage = 20.f;
 };
