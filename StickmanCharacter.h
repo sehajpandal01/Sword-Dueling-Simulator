@@ -127,7 +127,6 @@ private:
     void EndIFrames();
     void ResetDodgeCooldown();
     void ApplyStagger(AStickmanCharacter* Target, float Duration);
-
     FTimerHandle AttackCooldownTimer, AttackDurationTimer;
     FTimerHandle TH_EndIFrames, TH_EndDodge, TH_DodgeCD;
     UPROPERTY() class AStickmanGameMode* GameMode;
