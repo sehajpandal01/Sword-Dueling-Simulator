@@ -73,7 +73,6 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Aura|VFX") class UMaterialParameterCollection* AuraMPC=nullptr;
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Techniques") TSet<FName> UnlockedTechniques;
-
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Combo") int32 ComboStep=0;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Combo") int32 ComboMaxSteps=3;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Combat|Combo") float ComboResetTime=0.9f;
